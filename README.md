@@ -1,2 +1,2 @@
 # shell-script
-a collection shell scripts for build, redeploy project in prod env
+a collection shell scripts contains compile project script, redeploy project script, backup script to CI 
