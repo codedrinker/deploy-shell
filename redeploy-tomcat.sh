@@ -12,7 +12,7 @@ function clean_up {
 }
 
 function restartProcess {
-	rm -rf $CATALINA_HOME/webapps/*
+	rm -rf $CATALINA_HOME/webapps/$PROJECT_NAME
 	rm -rf $CATALINA_HOME/logs/*
 	eval "cp $TARGET_HOME $CATALINA_HOME/webapps/$PROJECT_NAME"
 	
@@ -100,7 +100,7 @@ function reloadSource {
 function buildSource {
 	echo "cd $SOURCE_HOME"
 	cd $SOURCE_HOME
-	
+
 	reloadSource
 
 	echo "mvn clean -U -DskipTests  package -P $ENV_NAME"
