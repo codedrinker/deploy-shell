@@ -72,9 +72,36 @@ function databaseMigrate {
 	fi
 }
 
+function reloadSource {
+	echo 'change branch'
+	if [ $# != 1 ]
+	  then
+	  echo "checkout master"
+	  git checkout master
+	  else
+	  echo "checkout provide branch"
+	  echo $1
+	  git checkout $1
+	fi
+
+	echo 'update code'
+	git pull
+
+	STATUS=$?
+	if [ $STATUS -eq 0 ]
+	then
+		echo "Update Code Successful"
+	else
+		echo "Update Code Failed"
+		exit 1
+	fi
+}
+
 function buildSource {
 	echo "cd $SOURCE_HOME"
 	cd $SOURCE_HOME
+	
+	reloadSource
 
 	echo "mvn clean -U -DskipTests  package -P $ENV_NAME"
 	eval "mvn clean -U -DskipTests  package -P $ENV_NAME"
