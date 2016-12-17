@@ -49,7 +49,6 @@ function stopPreviousProcess {
 		echo "Kill Successful"
 	else
 		echo "Kill Failed"
-		exit 1
 	fi
 }
 
