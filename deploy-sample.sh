@@ -1,4 +1,4 @@
-sh git-pull.sh
+sh git-pull.sh master ../git-continue-learning
 status=$?
 if [ $status -eq 0 ]; then 
 	echo "exec successfully."
