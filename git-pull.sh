@@ -2,12 +2,12 @@ GIT_HOME="."
 GIT_BRANCH="master"
 NEED_UPDATED=true
 if [ $# == 1 ]; then
-	GIT_HOME=$1
+	GIT_BRANCH=$1
 fi
 
 if [ $# == 2 ]; then
-	GIT_HOME=$1
-	GIT_BRANCH=$2
+	GIT_BRANCH=$1
+	GIT_HOME=$2
 fi
 
 eval "cd $GIT_HOME"
