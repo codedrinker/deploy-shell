@@ -11,12 +11,18 @@ if [ $# == 2 ]; then
 fi
 
 eval "cd $MAVEN_PROJECT_HOME"
+STATUS=$?
+if [ $STATUS -ne 0 ]
+then
+	echo "Can not find migrate directory."
+	exit 1
+fi
 echo "Current directory"
 pwd
 
 echo "Start migrate profile $MAVEN_PROJECT_PROFILE."
-echo "mvn clean compile flyway:migrate -P $MAVEN_PROJECT_PROFILE"
-eval "mvn clean compile flyway:migrate -P $MAVEN_PROJECT_PROFILE"
+echo "mvn clean compile package flyway:migrate -P $MAVEN_PROJECT_PROFILE"
+eval "mvn clean compile package flyway:migrate -P $MAVEN_PROJECT_PROFILE"
 STATUS=$?
 if [ $STATUS -eq 0 ]
 then
