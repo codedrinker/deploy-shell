@@ -36,14 +36,17 @@ function stopPreviousProcess {
 
 stopPreviousProcess
 
-echo "rm -rf $TOMCAT_HOME/webapps/$TOMCAT_TARGET.war"
-echo "rm -rf $TOMCAT_HOME/webapps/$TOMCAT_TARGET/"
+for i in $(echo $TOMCAT_TARGET | tr "," "\n")
+do
+  	echo "rm -rf $TOMCAT_HOME/webapps/$i.war"
+	echo "rm -rf $TOMCAT_HOME/webapps/$i/"
 
-eval "rm -rf $TOMCAT_HOME/webapps/$TOMCAT_TARGET.war"
-eval "rm -rf $TOMCAT_HOME/webapps/$TOMCAT_TARGET/"
+	eval "rm -rf $TOMCAT_HOME/webapps/$i.war"
+	eval "rm -rf $TOMCAT_HOME/webapps/$i/"
 
-echo "cp $MAVEN_PROJECT_HOME/$MAVEN_MODULE_NAME/target/$MAVEN_MODULE_NAME-0.0.1.war $TOMCAT_HOME/webapps/$TOMCAT_TARGET.war"
-eval "cp $MAVEN_PROJECT_HOME/$MAVEN_MODULE_NAME/target/$MAVEN_MODULE_NAME-0.0.1.war $TOMCAT_HOME/webapps/$TOMCAT_TARGET.war"
+	echo "cp $MAVEN_PROJECT_HOME/$MAVEN_MODULE_NAME/target/$MAVEN_MODULE_NAME-0.0.1.war $TOMCAT_HOME/webapps/$i.war"
+	eval "cp $MAVEN_PROJECT_HOME/$MAVEN_MODULE_NAME/target/$MAVEN_MODULE_NAME-0.0.1.war $TOMCAT_HOME/webapps/$i.war"
+done
 
 echo 'Sleep for restart'
 date "+%Y-%m-%d %H:%M:%S"
