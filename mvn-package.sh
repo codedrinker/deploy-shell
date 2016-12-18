@@ -3,7 +3,7 @@ MAVEN_PROJECT_NAME=""
 MAVEN_PROJECT_PROFILE=""
 if [ $# -lt 2 ]; then
 	echo "Usage: Please given more than 1 param."
-	echo "sh mvn-package.sh shell-script sandbox"
+	echo "Example: sh mvn-package.sh [module name] [profile] [module directory]"
 	exit 1
 fi
 if [ $# == 2 ]; then
