@@ -6,19 +6,27 @@ Also all execptions have been handle.
 
 ## git-pull.sh
 Integrate git pull command, and return whether need update code.
-`sh git-pull.sh`
+```
+sh git-pull.sh
+```
 
 ## migrate.sh 
 Using Flyway migration tool.
-`sh migrate.sh profile module-directory`
+```
+sh migrate.sh profile module-directory
+```
 
 ## mvn-package.sh
 Package specific module, also no need to build any useless module.
-`sh mvn-package.sh module-name profile module-directory`
+```
+sh mvn-package.sh module-name profile module-directory
+```
 
 ## tomcat-deploy.sh
 Deploy Tomcat easily. also this shell can restart tomcat by the specific name.
-`sh tomcat-deploy.sh tomcat-home maven-target webapp-name`
+```
+sh tomcat-deploy.sh tomcat-home maven-target webapp-name
+```
 
 
 ## deploy-sample.sh
