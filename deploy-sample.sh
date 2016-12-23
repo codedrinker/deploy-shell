@@ -24,6 +24,7 @@ function deploy {
 	if [ $tomcat_deploy_status -eq 0 ]; then
 		echo "Deploy successfully."
 	else
+		clean_up
 		echo "Deploy failed."
 	fi  
 }
@@ -45,10 +46,12 @@ function process {
 				deploy
 			else
 				echo "Migrate failed."
+				clean_up
 				exit 1
 			fi
 		else
 			echo "Maven build failed."
+			clean_up
 			exit 1
 		fi
 	elif [ $status -eq 2 ]; then 
@@ -56,6 +59,7 @@ function process {
 		deploy
 	else
 		echo "something wrong."
+		clean_up
 		exit 1
 	fi
 }
