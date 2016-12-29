@@ -3,6 +3,9 @@ A collection shell scripts contains compile project script, migrate script, rede
 Also all execptions have been handle.
 
 #Usage
+You can clone repo to anywhere, and then define a shell-script home to your path.
+
+#Descriptio
 
 ## git-pull.sh
 Integrate git pull command, and return whether need update code.
