@@ -5,7 +5,7 @@ Also all execptions have been handle.
 #Usage
 You can clone repo to anywhere, and then define a shell-script home to your path.
 
-#Descriptio
+#Description
 
 ## git-pull.sh
 Integrate git pull command, and return whether need update code.
